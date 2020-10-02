@@ -8,84 +8,7 @@ double A[3][3]={0.0};
 double f=1;
 
 
-void m(double re[3][3], double p[3][3],double result[3][3])
-{
-	for(int i=0;i<3;i++)
-	{
-		for(int j=0;j<3;j++)
-		{
-			double z=0;
-			for(int k=0;k<3;k++)
-			{
-				z = z +(re[i][k]*p[k][j]);
-			}
-			result[i][j]=z;
 
-		}
-
-	}
-for(int i=0;i<3;++i)
-{
-     for(int j=0;j<3;++j)
-{
-
-    A[i][j]=result[i][j];
-    if(f!=0)
-    cout<<A[i][j]<<" ";
-
-}
-cout<<endl;
-}
-
-}
-void refx(double A[3][3],int n)
-{
-
-    double t[3][3]={{1,0,0},
-                    {0,-1,0
-
-                    },
-                    {
-                        0,0,1
-                    }
-    };
-       double result[3][3];
-       m(t,A,result);
-       if(n>1)
-        line(A[0][0],A[1][0],A[0][1],A[1][1]);
-         if(n>2)
-         {
-
-           line(A[0][0],A[1][0],A[0][2],A[1][2]);
-            line(A[0][1],A[1][1],A[0][2],A[1][2]);}
-
-
-
-    };
-
-void refy(double A[3][3],int n)
-{
-    double t[3][3]={{-1,0,0},
-                    {0,1,0
-
-                    },
-                    {
-                        0,0,1
-                    }
-    };
-
-       double result[3][3];
-       m(t,A,result);
-
-
-       if(n>1)
-        line(A[0][0],A[1][0],A[0][1],A[1][1]);
-         if(n>2)
-         {
-
-           line(A[0][0],A[1][0],A[0][2],A[1][2]);
-            line(A[0][1],A[1][1],A[0][2],A[1][2]);}
-    };
 void shear(double A[3][3],double Shx,double Shy,int n)
 {
 
@@ -154,61 +77,6 @@ void rot(double A[3][3],double angle,int n)
 
            line(A[0][0],A[1][0],A[0][2],A[1][2]);
             line(A[0][1],A[1][1],A[0][2],A[1][2]);}
-
-
-}
-void translation(double A[3][3],double tx,double ty,int n)
-{
-  for(int j=0;j<n;++j)
-  {
-    for(int i=0;i<2;++i)
-    {
-        if(i==0)
-        A[i][j]=A[i][j]+tx;
-        else
-            A[i][j]+=ty;
-            if(f!=0)
-        cout<<A[i][j]<<" ";
-    }
-    cout<<endl;
-  }
-        if(n>1)
-        line(A[0][0],A[1][0],A[0][1],A[1][1]);
-         if(n>2)
-         {
-
-           line(A[0][0],A[1][0],A[0][2],A[1][2]);
-            line(A[0][1],A[1][1],A[0][2],A[1][2]);}
-
-}
-void reff(double e,double c)
-{
-    f=0;
-    double q=(e*e);
-    double u[3][3]={ {(1-q)/(1+q),2*e/(1+q) ,-2*c*e/(1+q)},
-
-                  {2*e/(1+q),(q-1)/(1+q),2*c/(1+q)
-                  },
-
-              {0,0,1}
-    };
-    double result[3][3];
-
-     m(u,A,result);
-    f=1;
-    cout<<A[0][0]<<" "<<A[1][0]<<endl;
-
-
-
-}
-void refs(double r,int n)
-{
-    f=0;
-    translation(A,-r,0,1);
-    refy(A,n);
-    translation(A,r,0,1);
-    cout<<A[0][0]<<" "<<A[1][0]<<endl;
-
 
 
 }
